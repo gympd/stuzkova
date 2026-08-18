@@ -10,40 +10,56 @@
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     h1 {
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
     }
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0;
-      overflow: hidden;
-      max-width: 100%;
+    ul {
+      list-style: none;
+      padding: 0;
     }
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
+    li {
+      margin-bottom: 0.75rem;
+    }
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .playlist {
+      font-weight: 600;
+      margin-bottom: 1.5rem;
     }
   </style>
 </head>
 <body>
   <h1>Zoznam odkazov pre stužkové</h1>
 
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/videoseries?si=GqSuMDmxe-GnfgVy&amp;list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv"
-      title="YouTube video player"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <p class="playlist">
+    <a href="https://youtube.com/playlist?list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&si=IHwNjYBFbsdvX9iQ" target="_blank" rel="noopener">
+      Celý playlist (všetky videá)
+    </a>
+  </p>
+
+  <h2>Jednotlivé stužkové:</h2>
+  <p>Najaktuálnejšie videá zo stužkových slávností</p>
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=yQZI3ETUa-w&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=1" target="_blank" rel="noopener">1. Stužková</a></li>
+    <li><a href="https://www.youtube.com/watch?v=yQZI3ETUa-w&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=2" target="_blank" rel="noopener">2. Stužková</a></li>
+    <li><a href="https://www.youtube.com/watch?v=DkOClBvzZ9c&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=3" target="_blank" rel="noopener">3. Stužková</a></li>
+    <li><a href="https://www.youtube.com/watch?v=CvDz04dEP9Y&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=4" target="_blank" rel="noopener">4. Stužková</a></li>
+    <li><a href="https://www.youtube.com/watch?v=gBPPPPS-D5M&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=5" target="_blank" rel="noopener">5. Stužková</a></li>
+    <li><a href="https://www.youtube.com/watch?v=i1W-l2Z7aqs&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=6" target="_blank" rel="noopener">6. Stužková</a></li>
+    <li><a href="https://www.youtube.com/watch?v=x6RxW4rlAqM&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=7" target="_blank" rel="noopener">7. Stužková</a></li>
+    <li><a href="https://www.youtube.com/watch?v=KOyPeCXnI68&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=8" target="_blank" rel="noopener">8. Stužková</a></li>
+    <li><a href="https://www.youtube.com/watch?v=GKvPblDbh9g&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=9" target="_blank" rel="noopener">9. Stužková</a></li>
+    <li><a href="https://www.youtube.com/watch?v=lw4v5QMMDq0&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=10" target="_blank" rel="noopener">10. Stužková</a></li>
+    <li><a href="https://www.youtube.com/watch?v=Lupb-D2Je6Y&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=12" target="_blank" rel="noopener">11. Stužková</a></li>
+    <li><a href="https://youtu.be/kqMy4_oiwIg?si=_Q8bT6wRGCr8Ci5E" target="_blank" rel="noopener">12. Stužková</a></li>
+  </ul>
 </body>
 </html>
