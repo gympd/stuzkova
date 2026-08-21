@@ -3,7 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
   <title>Zoznam odkazov pre stužkové – Gymnázium Vavrinca Benedikta Nedožerského v Prievidzi</title>
+  <meta name="title" content="Zoznam odkazov pre stužkové – Gymnázium Vavrinca Benedikta Nedožerského v Prievidzi">
+  <meta name="description" content="Archív a zoznam videozáznamov a fotografií zo stužkových slávností Gymnázia Vavrinca Benedikta Nedožerského v Prievidzi (1987 – 2025).">
+  <meta name="keywords" content="stuzkova, gympd, gvbn, Gymnázium Vavrinca Benedikta Nedožerského, Prievidza, stužková slávnosť, maturitný ročník, fotogalérie, videozáznamy, zelené stužky">
+  <meta name="author" content="Gymnázium Vavrinca Benedikta Nedožerského">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://stuzkova.gympd.sk/">
+
+  <!-- Favicon & PWA Branding -->
+  <link rel="icon" type="image/webp" href="./logo.webp">
+  <link rel="shortcut icon" href="./logo.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="./logo.webp">
+  <link rel="manifest" href="./site.webmanifest">
+  <meta name="theme-color" content="#740230">
+  <meta name="msapplication-TileColor" content="#740230">
+  <meta name="msapplication-TileImage" content="./logo.webp">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sk_SK">
+  <meta property="og:url" content="https://stuzkova.gympd.sk/">
+  <meta property="og:site_name" content="Stužkové GVBN">
+  <meta property="og:title" content="Zoznam odkazov pre stužkové – Gymnázium Vavrinca Benedikta Nedožerského v Prievidzi">
+  <meta property="og:description" content="Archív a zoznam videozáznamov a fotografií zo stužkových slávností Gymnázia Vavrinca Benedikta Nedožerského v Prievidzi (1987 – 2025).">
+  <meta property="og:image" content="https://stuzkova.gympd.sk/logo.webp">
+  <meta property="og:image:secure_url" content="https://stuzkova.gympd.sk/logo.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="Logo Stužková GVBN - zelené stužky">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://stuzkova.gympd.sk/">
+  <meta name="twitter:title" content="Zoznam odkazov pre stužkové – Gymnázium V. B. Nedožerského">
+  <meta name="twitter:description" content="Archív a zoznam videozáznamov a fotografií zo stužkových slávností Gymnázia Vavrinca Benedikta Nedožerského v Prievidzi (1987 – 2025).">
+  <meta name="twitter:image" content="https://stuzkova.gympd.sk/logo.webp">
+  <meta name="twitter:image:alt" content="Logo Stužková GVBN">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HighSchool",
+        "@id": "https://gympd.sk/#school",
+        "name": "Gymnázium Vavrinca Benedikta Nedožerského",
+        "url": "https://gympd.sk",
+        "logo": "https://stuzkova.gympd.sk/logo.webp",
+        "image": "https://stuzkova.gympd.sk/logo.webp",
+        "sameAs": [
+          "https://instagram.com/gvbnsk",
+          "https://instagram.com/gvbnprievidza",
+          "https://dsc.gg/gvbn",
+          "https://www.youtube.com/playlist?list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Prievidza",
+          "addressCountry": "SK"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://stuzkova.gympd.sk/#website",
+        "url": "https://stuzkova.gympd.sk/",
+        "name": "Stužkové GVBN",
+        "description": "Archív a zoznam videozáznamov a fotografií zo stužkových slávností Gymnázia Vavrinca Benedikta Nedožerského v Prievidzi.",
+        "publisher": {
+          "@id": "https://gympd.sk/#school"
+        }
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://stuzkova.gympd.sk/#webpage",
+        "url": "https://stuzkova.gympd.sk/",
+        "name": "Zoznam odkazov pre stužkové – Gymnázium Vavrinca Benedikta Nedožerského v Prievidzi",
+        "isPartOf": {
+          "@id": "https://stuzkova.gympd.sk/#website"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://stuzkova.gympd.sk/logo.webp"
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --burgundy: #740230;
@@ -19,11 +110,51 @@
       --beige: #f0e5d3;
       
       --bg: #f5f7fa;
-      --card-bg: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.92);
       --text: #1a1a1a;
       --text-muted: #4a5568;
       --border: #d0d7de;
       --radius: 12px;
+    }
+
+    /* Blurred background */
+    .bg-blur-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .bg-blur-image {
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      right: -30px;
+      bottom: -30px;
+      background-image: url("assets/stuzkova_5.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      filter: none;
+      transform: scale(1.06);
+    }
+
+    .bg-blur-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(245, 247, 250, 0.45) 0%,
+        rgba(240, 243, 248, 0.6) 50%,
+        rgba(235, 240, 247, 0.7) 100%
+      );
     }
 
     body {
@@ -34,14 +165,48 @@
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.5;
+      position: relative;
+      min-height: 100vh;
     }
 
     header {
-      background-color: var(--burgundy);
+      background: linear-gradient(135deg, rgba(116, 2, 48, 0.96) 0%, rgba(70, 1, 29, 0.98) 100%);
       color: #ffffff;
       padding: 2.25rem 2rem;
       border-radius: var(--radius);
       margin-bottom: 2rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(116, 2, 48, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-logo {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+      background-color: #ffffff;
+      flex-shrink: 0;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .brand-logo:hover {
+      transform: scale(1.06) rotate(2deg);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    }
+
+    .brand-titles {
+      flex: 1;
     }
 
     h1 {
@@ -53,14 +218,16 @@
 
     .subtitle {
       color: var(--burgundy-tint);
-      margin: 0 0 1.75rem 0;
+      margin: 0;
       font-size: 1rem;
-      opacity: 0.9;
+      opacity: 0.95;
     }
 
     .contact-box {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: #ffffff;
       padding: 1.25rem 1.5rem;
       border-radius: 10px;
@@ -108,11 +275,14 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
-      transition: background-color 0.2s ease;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .playlist-btn:hover {
       background: var(--navy-medium);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(10, 48, 125, 0.3);
     }
 
     .stats {
@@ -121,12 +291,14 @@
     }
 
     .stat-badge {
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       color: #ffffff;
       padding: 0.4rem 0.85rem;
       border-radius: 6px;
       font-size: 0.85rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .photos-section {
@@ -145,6 +317,7 @@
       color: var(--navy-dark);
       margin: 0;
       font-weight: 700;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     }
 
     .section-divider {
@@ -161,7 +334,10 @@
 
     .gallery-card {
       background: var(--card-bg);
-      border: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
       border-radius: var(--radius);
       padding: 1rem 1.25rem;
       text-decoration: none;
@@ -175,7 +351,7 @@
     .gallery-card:hover {
       border-color: var(--burgundy);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(116, 2, 48, 0.08);
+      box-shadow: 0 6px 18px rgba(116, 2, 48, 0.12);
     }
 
     .gallery-card-header {
@@ -218,6 +394,8 @@
 
     .loading-state, .empty-state {
       background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 1.5rem;
       border-radius: var(--radius);
       border: 1px dashed var(--border);
@@ -242,6 +420,7 @@
       color: var(--burgundy);
       margin: 0;
       font-weight: 700;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     }
 
     .year-divider {
@@ -252,8 +431,11 @@
 
     .video-table {
       background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-radius: var(--radius);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 18px rgba(10, 48, 125, 0.04);
       overflow: hidden;
     }
 
@@ -271,7 +453,7 @@
     }
 
     .video-row:nth-child(even) {
-      background-color: #fafbfc;
+      background-color: rgba(250, 251, 252, 0.75);
     }
 
     .video-main-info {
@@ -318,11 +500,12 @@
       font-size: 0.85rem;
       font-weight: 600;
       white-space: nowrap;
-      transition: background-color 0.15s ease;
+      transition: background-color 0.15s ease, transform 0.15s ease;
     }
 
     .btn-watch:hover {
       background-color: var(--burgundy);
+      transform: translateY(-1px);
     }
 
     @media (max-width: 650px) {
@@ -332,6 +515,16 @@
       }
       header {
         padding: 1.5rem 1.25rem;
+      }
+      .header-brand {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+      .brand-logo {
+        width: 64px;
+        height: 64px;
       }
       .header-footer {
         flex-direction: column;
@@ -363,9 +556,20 @@
 </head>
 <body>
 
+  <!-- Blurred Background -->
+  <div class="bg-blur-container" aria-hidden="true">
+    <div class="bg-blur-image"></div>
+    <div class="bg-blur-overlay"></div>
+  </div>
+
   <header>
-    <h1>Gymnázium Vavrinca Benedikta Nedožerského</h1>
-    <p class="subtitle">Archív a zoznam záznamov zo stužkových slávností</p>
+    <div class="header-brand">
+      <img src="./logo.webp" alt="Gymnázium Vavrinca Benedikta Nedožerského" class="brand-logo" width="76" height="76">
+      <div class="brand-titles">
+        <h1>Gymnázium Vavrinca Benedikta Nedožerského</h1>
+        <p class="subtitle">Archív a zoznam záznamov zo stužkových slávností</p>
+      </div>
+    </div>
 
     <div class="contact-box">
       <strong>Máte záznam, fotografie alebo odkaz na vašu stužkovú?</strong>

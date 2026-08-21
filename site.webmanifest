@@ -1,0 +1,19 @@
+{
+  "name": "Stužkové GVBN – Gymnázium Vavrinca Benedikta Nedožerského",
+  "short_name": "Stužkové GVBN",
+  "description": "Archív a zoznam záznamov a fotografií zo stužkových slávností Gymnázia Vavrinca Benedikta Nedožerského v Prievidzi.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#740230",
+  "theme_color": "#740230",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
