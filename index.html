@@ -6,7 +6,6 @@
   <title>Zoznam odkazov pre stužkové – Gymnázium Vavrinca Benedikta Nedožerského v Prievidzi</title>
   <style>
     :root {
-      /* Farebná paleta z oficiálneho dizajnového manuálu gympd.sk */
       --burgundy: #740230;
       --burgundy-dark: #3d0119;
       --burgundy-accent: #a62d55;
@@ -37,7 +36,6 @@
       line-height: 1.5;
     }
 
-    /* Čisté vínové záhlavie */
     header {
       background-color: var(--burgundy);
       color: #ffffff;
@@ -60,7 +58,6 @@
       opacity: 0.9;
     }
 
-    /* Integrovaná výzva / kontakt */
     .contact-box {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -93,7 +90,6 @@
       color: var(--beige);
     }
 
-    /* Spodná lišta záhlavia (Playlist a Štatistiky) */
     .header-footer {
       display: flex;
       flex-wrap: wrap;
@@ -133,7 +129,6 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Sekcia pre dynamické fotogalérie */
     .photos-section {
       margin-bottom: 2.5rem;
     }
@@ -158,7 +153,6 @@
       background-color: var(--border);
     }
 
-    /* Mriežka dynamických fotogalérií */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -205,6 +199,7 @@
       border-radius: 6px;
       font-size: 0.85rem;
       border: 1px solid rgba(116, 2, 48, 0.15);
+      text-transform: uppercase;
     }
 
     .gallery-link-action {
@@ -225,13 +220,12 @@
       background: var(--card-bg);
       padding: 1.5rem;
       border-radius: var(--radius);
-      border: 1px border-dashed var(--border);
+      border: 1px dashed var(--border);
       color: var(--text-muted);
       font-size: 0.9rem;
       text-align: center;
     }
 
-    /* Sekcie rokov (pre videá) */
     .year-section {
       margin-bottom: 2.5rem;
     }
@@ -256,7 +250,6 @@
       background-color: var(--border);
     }
 
-    /* Zoznam položiek */
     .video-table {
       background: var(--card-bg);
       border-radius: var(--radius);
@@ -397,7 +390,7 @@
 
   <main>
 
-    <!-- DYNAMICKÁ SEKCIA PRE FOTOGALÉRIE -->
+    <!-- FOTOGALÉRIE -->
     <section class="photos-section">
       <div class="section-title-wrapper">
         <h2 class="section-title">Fotografie jednotlivých tried zo stužkovej</h2>
@@ -405,7 +398,7 @@
       </div>
       
       <div id="photo-galleries-container">
-        <div class="loading-state">Vyhľadávam dostupné fotogalérie tried...</div>
+        <div class="loading-state">Nahrávam fotogalérie...</div>
       </div>
     </section>
 
@@ -499,349 +492,108 @@
       </div>
     </section>
 
-    <!-- ROK 2022 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 2022</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">4.E</span>
-            <div class="video-details">
-              <span class="video-title">Stužková slávnosť</span>
-              <span class="video-meta">4. 11. 2022 &bull; Meridiana Bojnice</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=lw4v5QMMDq0&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=10" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROK 2019 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 2019</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">4.D</span>
-            <div class="video-details">
-              <span class="video-title">Klip zo Stužkovej</span>
-              <span class="video-meta">15. 11. 2019</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=CvDz04dEP9Y&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=4" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROK 2018 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 2018</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">4.C</span>
-            <div class="video-details">
-              <span class="video-title">Stužková slávnosť</span>
-              <span class="video-meta">Rok 2018</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=i1W-l2Z7aqs&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=6" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROK 2016 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 2016</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">IV.C</span>
-            <div class="video-details">
-              <span class="video-title">Stužková slávnosť (2013 – 2017)</span>
-              <span class="video-meta">Rok 2016</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=gBPPPPS-D5M&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=5" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROK 2014 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 2014</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">IV.B</span>
-            <div class="video-details">
-              <span class="video-title">Nástup a úvodný príhovor</span>
-              <span class="video-meta">Rok 2014</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=9IXUSF3MO_c&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=15" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">IV.B</span>
-            <div class="video-details">
-              <span class="video-title">Príchod rodičov</span>
-              <span class="video-meta">Rok 2014</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=bHJUUe_yDhc&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=13" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROK 2013 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 2013</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">Škola</span>
-            <div class="video-details">
-              <span class="video-title">Pečatenie knihy Gymnázia</span>
-              <span class="video-meta">8. 11. 2013</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=_b0mWyBpiaQ&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=19" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">4.G</span>
-            <div class="video-details">
-              <span class="video-title">Stužková slávnosť (2010 – 2014)</span>
-              <span class="video-meta">Rok 2013</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=CeOsUlzyLlE&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=11" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROK 2012 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 2012</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">4.D</span>
-            <div class="video-details">
-              <span class="video-title">Intro ku stužkovej (Gangnam Style HD)</span>
-              <span class="video-meta">20. 11. 2012</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=7vWlnADX-f8&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=21" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROK 2011 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 2011</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">4.C</span>
-            <div class="video-details">
-              <span class="video-title">Stužková slávnosť</span>
-              <span class="video-meta">Rok 2011</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=8omLX255R7c&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=14" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROK 2003 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 2003</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">4.B</span>
-            <div class="video-details">
-              <span class="video-title">Stužková slávnosť</span>
-              <span class="video-meta">22. 11. 2003 &bull; Dom kultúry Prievidza</span>
-            </div>
-          </div>
-          <a href="https://youtu.be/kqMy4_oiwIg?si=_Q8bT6wRGCr8Ci5E" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROK 1995 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 1995</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">4.D</span>
-            <div class="video-details">
-              <span class="video-title">Stužková slávnosť</span>
-              <span class="video-meta">Rok 1995</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=pgN9IlTgsHM&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=20" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROK 1987 -->
-    <section class="year-section">
-      <div class="year-header">
-        <h2 class="year-title">Rok 1987</h2>
-        <div class="year-divider"></div>
-      </div>
-      <div class="video-table">
-        <div class="video-row">
-          <div class="video-main-info">
-            <span class="class-tag">4.E</span>
-            <div class="video-details">
-              <span class="video-title">Stužková slávnosť (Maturitný ročník 1987)</span>
-              <span class="video-meta">21. 2. 1987</span>
-            </div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=icW28Ttu57c&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=17" target="_blank" rel="noopener" class="btn-watch">Prehrať video</a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- SKRIPT PRE AUTOMATICKÉ SKENOVANIE PRIEČINKOV -->
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
       const container = document.getElementById('photo-galleries-container');
       if (!container) return;
 
+      // AK CHCEŠ INSTANTNÉ NAČÍTANIE CEZ GITHUB API: Sem zadaj názov repozitára v tvare "vlastnik/repozitar"
+      // Príklad: const GITHUB_REPO = "gvbn/stuzkova";
+      const GITHUB_REPO = ""; 
+
       let foundGalleries = [];
 
-      try {
-        const host = window.location.hostname;
-        const pathname = window.location.pathname;
+      // 1. Krok: Skúška cez GitHub API
+      let repoToFetch = GITHUB_REPO;
+      if (!repoToFetch && window.location.hostname.endsWith('github.io')) {
+        const parts = window.location.pathname.split('/').filter(Boolean);
+        const owner = window.location.hostname.split('.')[0];
+        const repo = parts[0] || `${owner}.github.io`;
+        repoToFetch = `${owner}/${repo}`;
+      }
 
-        // 1. Ak beží na GitHub Pages (napr. username.github.io/repo)
-        if (host.endsWith('github.io')) {
-          const owner = host.split('.')[0];
-          const pathParts = pathname.split('/').filter(Boolean);
-          const repo = pathParts[0] || `${owner}.github.io`;
-
-          const apiUrl = `https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`;
-          const res = await fetch(apiUrl);
-          
+      if (repoToFetch) {
+        try {
+          const res = await fetch(`https://api.github.com/repos/${repoToFetch}/git/trees/main?recursive=1`);
           if (res.ok) {
             const data = await res.json();
-            // Vyhľadanie vzoru YYYY/trieda/index.html
             foundGalleries = data.tree
               .filter(item => item.path.match(/^\d{4}\/[^\/]+\/index\.html$/i))
               .map(item => {
                 const parts = item.path.split('/');
-                return {
-                  year: parts[0],
-                  className: parts[1],
-                  url: `./${parts[0]}/${parts[1]}/`
-                };
+                return { year: parts[0], className: parts[1], url: `./${parts[0]}/${parts[1]}/` };
               });
           }
-        } 
-        // 2. Fallback pre lokálny server / Nginx / Apache
-        else {
-          const res = await fetch('./');
-          if (res.ok) {
-            const text = await res.text();
-            const doc = new DOMParser().parseFromString(text, 'text/html');
-            const links = Array.from(doc.querySelectorAll('a'))
-              .map(a => a.getAttribute('href'))
-              .filter(Boolean);
+        } catch (e) {
+          console.warn('GitHub API fetch failed, switching to probing...', e);
+        }
+      }
 
-            // Vyhľadanie zložiek vo formáte YYYY/ alebo YYYY/trieda/
-            const yearFolders = links.filter(l => l.match(/^\d{4}\/?$/));
-            for (const yearHref of yearFolders) {
-              const yearName = yearHref.replace('/', '');
-              const subRes = await fetch(`./${yearName}/`);
-              if (subRes.ok) {
-                const subText = await subRes.text();
-                const subDoc = new DOMParser().parseFromString(subText, 'text/html');
-                const subLinks = Array.from(subDoc.querySelectorAll('a'))
-                  .map(a => a.getAttribute('href'))
-                  .filter(Boolean);
-                
-                subLinks.forEach(subHref => {
-                  const cleanClass = subHref.replace('/', '');
-                  if (cleanClass && cleanClass !== '..' && !cleanClass.includes('.')) {
+      // 2. Krok: Paralelné overovanie ciest (HEAD probing)
+      if (foundGalleries.length === 0) {
+        const startYear = 2015;
+        const currentYear = new Date().getFullYear() + 1;
+        const years = [];
+        for (let y = currentYear; y >= startYear; y--) {
+          years.push(y.toString());
+        }
+
+        // Zoznam možných tvarov názvov tried
+        const classes = [
+          'oktava', 'septima', 
+          '4.a', '4.b', '4.c', '4.d', '4.e',
+          '4a', '4b', '4c', '4d', '4e',
+          'iv.a', 'iv.b', 'iv.c', 'iv.d', 'iv.e'
+        ];
+
+        const checks = [];
+
+        for (const year of years) {
+          for (const cls of classes) {
+            const testUrl = `./${year}/${cls}/`;
+            checks.push(
+              fetch(testUrl, { method: 'HEAD' })
+                .then(res => {
+                  if (res.ok) {
                     foundGalleries.push({
-                      year: yearName,
-                      className: cleanClass,
-                      url: `./${yearName}/${cleanClass}/`
+                      year: year,
+                      className: cls,
+                      url: testUrl
                     });
                   }
-                });
-              }
-            }
+                })
+                .catch(() => {})
+            );
           }
         }
 
-        // Zobrazenie výsledkov
-        if (foundGalleries.length > 0) {
-          // Zotriedenie: Najskôr najnovší rok, potom trieda
-          foundGalleries.sort((a, b) => b.year.localeCompare(a.year) || a.className.localeCompare(b.className));
+        await Promise.all(checks);
+      }
 
-          let html = '<div class="gallery-grid">';
-          foundGalleries.forEach(item => {
-            html += `
-              <a href="${item.url}" class="gallery-card">
-                <div class="gallery-card-header">
-                  <span class="gallery-year">Rok ${item.year}</span>
-                  <span class="gallery-class-tag">${item.className}</span>
-                </div>
-                <div class="gallery-link-action">
-                  Zobraziť fotogalériu &rarr;
-                </div>
-              </a>
-            `;
-          });
-          html += '</div>';
-          container.innerHTML = html;
-        } else {
-          container.innerHTML = '<div class="empty-state">Zatiaľ neboli nájdené žiadne lokálne fotogalérie.</div>';
-        }
+      // 3. Krok: Zobrazenie nájdených fotogalérií
+      if (foundGalleries.length > 0) {
+        foundGalleries.sort((a, b) => b.year.localeCompare(a.year) || a.className.localeCompare(b.className));
 
-      } catch (err) {
-        console.warn('Nepodarilo sa automaticky načítať zložky:', err);
-        container.innerHTML = '<div class="empty-state">Fotogalérie sú dostupné po otvorení príslušných priečinkov tried.</div>';
+        let html = '<div class="gallery-grid">';
+        foundGalleries.forEach(item => {
+          html += `
+            <a href="${item.url}" class="gallery-card">
+              <div class="gallery-card-header">
+                <span class="gallery-year">Rok ${item.year}</span>
+                <span class="gallery-class-tag">${item.className}</span>
+              </div>
+              <div class="gallery-link-action">
+                Zobraziť fotogalériu &rarr;
+              </div>
+            </a>
+          `;
+        });
+        html += '</div>';
+        container.innerHTML = html;
+      } else {
+        container.innerHTML = '<div class="empty-state">Zatiaľ neboli nájdené žiadne fotogalérie tried.</div>';
       }
     });
   </script>
