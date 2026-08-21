@@ -3,63 +3,408 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zoznam odkazov pre stužkové</title>
+  <title>Zoznam odkazov pre stužkové – Gymnázium VBN Prievidza</title>
   <style>
+    :root {
+      --primary: #1a73e8;
+      --primary-hover: #1557b0;
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text: #202124;
+      --text-muted: #5f6368;
+      --border: #e0e0e0;
+      --badge-bg: #e8f0fe;
+      --badge-text: #174ea6;
+    }
+
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      max-width: 800px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 850px;
       margin: 2rem auto;
       padding: 0 1rem;
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
+
+    header {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
     h1 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      margin: 0 0 0.5rem 0;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+
+    .subtitle {
+      color: var(--text-muted);
+      margin: 0 0 1.25rem 0;
+      font-size: 0.95rem;
     }
-    li {
-      margin-bottom: 0.75rem;
+
+    .playlist-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #e8f0fe;
+      border: 1px solid #aecbfa;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      gap: 1rem;
     }
-    a {
-      color: #1a73e8;
+
+    .playlist-box a {
+      font-weight: 600;
+      color: var(--badge-text);
       text-decoration: none;
     }
-    a:hover {
+
+    .playlist-box a:hover {
       text-decoration: underline;
     }
-    .playlist {
+
+    .stats {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .stat-item {
+      background: var(--bg);
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .year-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .year-title {
+      font-size: 1.3rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+      color: var(--primary-hover);
+    }
+
+    .video-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .video-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .video-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .video-title {
       font-weight: 600;
-      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .badge {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      transition: background-color 0.2s;
+    }
+
+    .btn-link:hover {
+      background-color: var(--primary-hover);
+    }
+
+    @media (max-width: 600px) {
+      .video-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-link {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      .playlist-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Zoznam odkazov pre stužkové</h1>
 
-  <p class="playlist">
-    <a href="https://youtube.com/playlist?list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&si=IHwNjYBFbsdvX9iQ" target="_blank" rel="noopener">
-      Celý playlist (všetky videá)
-    </a>
-  </p>
+  <header>
+    <h1>Stužkové slávnosti – GVBN Prievidza</h1>
+    <p class="subtitle">Zoznam videí a spomienkových záznamov zo stužkových slávností</p>
 
-  <h2>Jednotlivé stužkové:</h2>
-  <p>Najaktuálnejšie videá zo stužkových slávností</p>
-  <ul>
-    <li><a href="https://www.youtube.com/watch?v=yQZI3ETUa-w&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=1" target="_blank" rel="noopener">1. Stužková</a></li>
-    <li><a href="https://www.youtube.com/watch?v=yQZI3ETUa-w&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=2" target="_blank" rel="noopener">2. Stužková</a></li>
-    <li><a href="https://www.youtube.com/watch?v=DkOClBvzZ9c&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=3" target="_blank" rel="noopener">3. Stužková</a></li>
-    <li><a href="https://www.youtube.com/watch?v=CvDz04dEP9Y&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=4" target="_blank" rel="noopener">4. Stužková</a></li>
-    <li><a href="https://www.youtube.com/watch?v=gBPPPPS-D5M&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=5" target="_blank" rel="noopener">5. Stužková</a></li>
-    <li><a href="https://www.youtube.com/watch?v=i1W-l2Z7aqs&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=6" target="_blank" rel="noopener">6. Stužková</a></li>
-    <li><a href="https://www.youtube.com/watch?v=x6RxW4rlAqM&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=7" target="_blank" rel="noopener">7. Stužková</a></li>
-    <li><a href="https://www.youtube.com/watch?v=KOyPeCXnI68&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=8" target="_blank" rel="noopener">8. Stužková</a></li>
-    <li><a href="https://www.youtube.com/watch?v=GKvPblDbh9g&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=9" target="_blank" rel="noopener">9. Stužková</a></li>
-    <li><a href="https://www.youtube.com/watch?v=lw4v5QMMDq0&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=10" target="_blank" rel="noopener">10. Stužková</a></li>
-    <li><a href="https://www.youtube.com/watch?v=Lupb-D2Je6Y&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=12" target="_blank" rel="noopener">11. Stužková</a></li>
-    <li><a href="https://youtu.be/kqMy4_oiwIg?si=_Q8bT6wRGCr8Ci5E" target="_blank" rel="noopener">12. Stužková</a></li>
-  </ul>
+    <div class="playlist-box">
+      <span> Kompletná zbierka na YouTube</span>
+      <a href="https://youtube.com/playlist?list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&si=IHwNjYBFbsdvX9iQ" target="_blank" rel="noopener">
+        Otvoriť celý playlist →
+      </a>
+    </div>
+
+    <div class="stats">
+      <span class="stat-item"> Obdobie: <strong>2003 – 2025</strong></span>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ROK 2025 -->
+    <section class="year-section">
+      <h2 class="year-title">Rok 2025</h2>
+      <div class="video-list">
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">4.E</span> Stužková slávnosť
+            </div>
+            <div class="meta-tags">
+              <span> 29. 11. 2025</span>
+              <span> Kultúrny dom Bojnice</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=DkOClBvzZ9c&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=3" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">4.B</span> Stužková slávnosť
+            </div>
+            <div class="meta-tags">
+              <span> Rok 2025</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=KOyPeCXnI68&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=8" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ROK 2024 -->
+    <section class="year-section">
+      <h2 class="year-title">Rok 2024</h2>
+      <div class="video-list">
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">Oktáva</span> Stužková slávnosť
+            </div>
+            <div class="meta-tags">
+              <span> 22. 11. 2024</span>
+              <span> Kultúrny dom Bojnice</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=GKvPblDbh9g&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=9" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">4.A</span> Stužková slávnosť
+            </div>
+            <div class="meta-tags">
+              <span> 8. 11. 2024</span>
+              <span> Kultúrny dom Bojnice</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=yQZI3ETUa-w&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=1" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ROK 2023 -->
+    <section class="year-section">
+      <h2 class="year-title">Rok 2023</h2>
+      <div class="video-list">
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">4.E</span> Stužková slávnosť
+            </div>
+            <div class="meta-tags">
+              <span> 11. 11. 2023</span>
+              <span> Kultúrny dom Bojnice</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=x6RxW4rlAqM&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=7" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">4.D</span> Stužková slávnosť
+            </div>
+            <div class="meta-tags">
+              <span> 3. 11. 2023</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=Lupb-D2Je6Y&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=12" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ROK 2022 -->
+    <section class="year-section">
+      <h2 class="year-title">Rok 2022</h2>
+      <div class="video-list">
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">4.E</span> Stužková slávnosť
+            </div>
+            <div class="meta-tags">
+              <span> 4. 11. 2022</span>
+              <span> Meridiana Bojnice</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=lw4v5QMMDq0&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=10" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ROK 2019 -->
+    <section class="year-section">
+      <h2 class="year-title">Rok 2019</h2>
+      <div class="video-list">
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">4.D</span> Klip zo Stužkovej
+            </div>
+            <div class="meta-tags">
+              <span> 15. 11. 2019</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=CvDz04dEP9Y&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=4" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ROK 2018 -->
+    <section class="year-section">
+      <h2 class="year-title">Rok 2018</h2>
+      <div class="video-list">
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">4.C</span> Stužková slávnosť
+            </div>
+            <div class="meta-tags">
+              <span> Rok 2018</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=i1W-l2Z7aqs&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=6" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ROK 2016 -->
+    <section class="year-section">
+      <h2 class="year-title">Rok 2016</h2>
+      <div class="video-list">
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">4.C</span> Stužková slávnosť
+            </div>
+            <div class="meta-tags">
+              <span> Rok 2016</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=gBPPPPS-D5M&list=PLmF0MyD0Ct6k2BZZY_TuaH5lQLn0Wa4qv&index=5" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ROK 2003 -->
+    <section class="year-section">
+      <h2 class="year-title">Rok 2003</h2>
+      <div class="video-list">
+
+        <div class="video-card">
+          <div class="video-info">
+            <div class="video-title">
+              <span class="badge">4.B</span> Stužková slávnosť
+            </div>
+            <div class="meta-tags">
+              <span> 22. 11. 2003</span>
+              <span> Dom Kultúry Prievidza</span>
+            </div>
+          </div>
+          <a href="https://youtu.be/kqMy4_oiwIg?si=_Q8bT6wRGCr8Ci5E" target="_blank" rel="noopener" class="btn-link">Pozrieť video</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
 </body>
 </html>
