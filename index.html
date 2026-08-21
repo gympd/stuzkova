@@ -133,7 +133,105 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Sekcie rokov */
+    /* Sekcia pre dynamické fotogalérie */
+    .photos-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--navy-dark);
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .section-divider {
+      flex: 1;
+      height: 2px;
+      background-color: var(--border);
+    }
+
+    /* Mriežka dynamických fotogalérií */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .gallery-card:hover {
+      border-color: var(--burgundy);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(116, 2, 48, 0.08);
+    }
+
+    .gallery-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .gallery-year {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .gallery-class-tag {
+      background: var(--burgundy-tint);
+      color: var(--burgundy);
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(116, 2, 48, 0.15);
+    }
+
+    .gallery-link-action {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.5rem;
+    }
+
+    .gallery-card:hover .gallery-link-action {
+      color: var(--burgundy);
+    }
+
+    .loading-state, .empty-state {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border: 1px border-dashed var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* Sekcie rokov (pre videá) */
     .year-section {
       margin-bottom: 2.5rem;
     }
@@ -298,6 +396,18 @@
   </header>
 
   <main>
+
+    <!-- DYNAMICKÁ SEKCIA PRE FOTOGALÉRIE -->
+    <section class="photos-section">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Fotografie jednotlivých tried zo stužkovej</h2>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div id="photo-galleries-container">
+        <div class="loading-state">Vyhľadávam dostupné fotogalérie tried...</div>
+      </div>
+    </section>
 
     <!-- ROK 2025 -->
     <section class="year-section">
@@ -630,6 +740,111 @@
     </section>
 
   </main>
+
+  <!-- SKRIPT PRE AUTOMATICKÉ SKENOVANIE PRIEČINKOV -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const container = document.getElementById('photo-galleries-container');
+      if (!container) return;
+
+      let foundGalleries = [];
+
+      try {
+        const host = window.location.hostname;
+        const pathname = window.location.pathname;
+
+        // 1. Ak beží na GitHub Pages (napr. username.github.io/repo)
+        if (host.endsWith('github.io')) {
+          const owner = host.split('.')[0];
+          const pathParts = pathname.split('/').filter(Boolean);
+          const repo = pathParts[0] || `${owner}.github.io`;
+
+          const apiUrl = `https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`;
+          const res = await fetch(apiUrl);
+          
+          if (res.ok) {
+            const data = await res.json();
+            // Vyhľadanie vzoru YYYY/trieda/index.html
+            foundGalleries = data.tree
+              .filter(item => item.path.match(/^\d{4}\/[^\/]+\/index\.html$/i))
+              .map(item => {
+                const parts = item.path.split('/');
+                return {
+                  year: parts[0],
+                  className: parts[1],
+                  url: `./${parts[0]}/${parts[1]}/`
+                };
+              });
+          }
+        } 
+        // 2. Fallback pre lokálny server / Nginx / Apache
+        else {
+          const res = await fetch('./');
+          if (res.ok) {
+            const text = await res.text();
+            const doc = new DOMParser().parseFromString(text, 'text/html');
+            const links = Array.from(doc.querySelectorAll('a'))
+              .map(a => a.getAttribute('href'))
+              .filter(Boolean);
+
+            // Vyhľadanie zložiek vo formáte YYYY/ alebo YYYY/trieda/
+            const yearFolders = links.filter(l => l.match(/^\d{4}\/?$/));
+            for (const yearHref of yearFolders) {
+              const yearName = yearHref.replace('/', '');
+              const subRes = await fetch(`./${yearName}/`);
+              if (subRes.ok) {
+                const subText = await subRes.text();
+                const subDoc = new DOMParser().parseFromString(subText, 'text/html');
+                const subLinks = Array.from(subDoc.querySelectorAll('a'))
+                  .map(a => a.getAttribute('href'))
+                  .filter(Boolean);
+                
+                subLinks.forEach(subHref => {
+                  const cleanClass = subHref.replace('/', '');
+                  if (cleanClass && cleanClass !== '..' && !cleanClass.includes('.')) {
+                    foundGalleries.push({
+                      year: yearName,
+                      className: cleanClass,
+                      url: `./${yearName}/${cleanClass}/`
+                    });
+                  }
+                });
+              }
+            }
+          }
+        }
+
+        // Zobrazenie výsledkov
+        if (foundGalleries.length > 0) {
+          // Zotriedenie: Najskôr najnovší rok, potom trieda
+          foundGalleries.sort((a, b) => b.year.localeCompare(a.year) || a.className.localeCompare(b.className));
+
+          let html = '<div class="gallery-grid">';
+          foundGalleries.forEach(item => {
+            html += `
+              <a href="${item.url}" class="gallery-card">
+                <div class="gallery-card-header">
+                  <span class="gallery-year">Rok ${item.year}</span>
+                  <span class="gallery-class-tag">${item.className}</span>
+                </div>
+                <div class="gallery-link-action">
+                  Zobraziť fotogalériu &rarr;
+                </div>
+              </a>
+            `;
+          });
+          html += '</div>';
+          container.innerHTML = html;
+        } else {
+          container.innerHTML = '<div class="empty-state">Zatiaľ neboli nájdené žiadne lokálne fotogalérie.</div>';
+        }
+
+      } catch (err) {
+        console.warn('Nepodarilo sa automaticky načítať zložky:', err);
+        container.innerHTML = '<div class="empty-state">Fotogalérie sú dostupné po otvorení príslušných priečinkov tried.</div>';
+      }
+    });
+  </script>
 
 </body>
 </html>
